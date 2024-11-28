@@ -1,25 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Genius App</title>
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-        <div class="frontpage">
-            <h1>Genius App</h1>
-            <p>Humanity’s greatest inventions are not just objects, they are stories of resilience and wonder.</p>
-            <div class="searchbox">
-                <input type="text" id="searchit">
-                <button onclick="searchInvention()">Search</button>
-            </div>
-            <div id="result">
-                <h3 id="inventionName"></h3>
-                <p id="inventorName"></p>
-                <p id="inventionHistory"></p>
-            </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football Stats Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Football Stats Dashboard</h1>
+        <div class="league-select">
+            <label for="league">Select League:</label>
+            <select id="league">
+                <option value="PL">Premier League</option>
+                <option value="LL">La Liga</option>
+                <option value="BL1">Bundesliga</option>
+                <option value="Serie A">Serie A</option>
+            </select>
+            <button id="load-stats">Load Stats</button>
         </div>
-        <script src="script.js"></script>
-    </body>
+
+        <div class="live-matches">
+            <h2>Live Matches</h2>
+            <ul id="live-matches-list"></ul>
+        </div>
+
+        <div class="team-rankings">
+            <h2>Team Rankings</h2>
+            <ul id="team-rankings-list"></ul>
+        </div>
+
+        <div class="player-stats">
+            <h2>Player Stats</h2>
+            <select id="team-select">
+                <option value="">Select a team</option>
+            </select>
+            <ul id="player-stats-list"></ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
 </html>
