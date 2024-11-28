@@ -1,4 +1,4 @@
-const apiKey = 'YOUR_API_KEY';  // Replace with your API key from API-Football or Football-Data.org
+const apiKey = 'YOUR_API_KEY'; 6804ed952c000ec48b9ebc1728be030ae1542e65b4844e65675e0c3124e6ce4a
 const baseUrl = 'https://api.football-data.org/v4';  // API endpoint
 
 document.getElementById('load-stats').addEventListener('click', loadFootballStats);
