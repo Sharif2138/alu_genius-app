@@ -1,46 +1,36 @@
-/* frontend/style.css */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .container {
-    width: 80%;
-    margin: auto;
     text-align: center;
     padding: 20px;
+    background: #f0f8ff;
   }
   
-  .search-bar {
-    margin: 20px 0;
+  #app {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: white;
   }
   
   input {
     padding: 10px;
-    width: 60%;
-    font-size: 16px;
+    width: 80%;
+    margin-bottom: 10px;
   }
   
   button {
-    padding: 10px;
-    font-size: 16px;
-    background-color: #007bff;
+    padding: 10px 20px;
+    background: #007BFF;
     color: white;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
   }
   
-  .results {
+  #result {
     margin-top: 20px;
-    text-align: left;
-  }
-  
-  .results p {
-    background: #fff;
-    padding: 10px;
-    margin: 10px 0;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+
   }
   

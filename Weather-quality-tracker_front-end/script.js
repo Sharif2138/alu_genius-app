@@ -1,36 +1,35 @@
-// frontend/app.js
-async function getWeather() {
-    const city = document.getElementById("cityInput").value;
-    if (!city) return alert("Please enter a city");
+document.getElementById('getWeather').addEventListener('click', () => {
+    const city = document.getElementById('cityInput').value;
+    const weatherApiKey = '768f0167ea0fddd766b125f66b1fef33';
+    const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${weatherApiKey}&units=metric`;
   
-    try {
-      // Fetch weather data
-      const weatherResponse = await fetch(`/api/weather?city=${city}`);
-      const weatherData = await weatherResponse.json();
+    const airQualityUrl = `https://api.openweathermap.org/data/2.5/air_pollution?lat={LAT}&lon={LON}&appid=${weatherApiKey}`;
   
-      if (weatherData.error) throw new Error(weatherData.error);
+    fetch(weatherUrl)
+      .then(response => response.json())
+      .then(data => {
+        const lat = data.coord.lat;
+        const lon = data.coord.lon;
   
-      // Fetch air quality data
-      const { lat, lon } = weatherData.coord;
-      const airQualityResponse = await fetch(`/api/air-quality?lat=${lat}&lon=${lon}`);
-      const airQualityData = await airQualityResponse.json();
+        const weatherInfo = `
+          <h2>Weather in ${city}</h2>
+          <p>Temperature: ${data.main.temp}°C</p>
+          <p>Weather: ${data.weather[0].description}</p>
+        `;
   
-      if (airQualityData.error) throw new Error(airQualityData.error);
-  
-      // Display results
-      const resultsDiv = document.getElementById("results");
-      resultsDiv.innerHTML = `
-        <p><strong>City:</strong> ${weatherData.city}</p>
-        <p><strong>Temperature:</strong> ${weatherData.temperature} °C</p>
-        <p><strong>Description:</strong> ${weatherData.description}</p>
-        <p><strong>Humidity:</strong> ${weatherData.humidity}%</p>
-        <p><strong>Wind Speed:</strong> ${weatherData.wind_speed} m/s</p>
-        <p><strong>Air Quality:</strong> ${airQualityData.air_quality}</p>
-        <p><strong>Category:</strong> ${airQualityData.category}</p>
-        <p><strong>Dominant Pollutant:</strong> ${airQualityData.dominant_pollutant}</p>
-      `;
-    } catch (error) {
-      alert(`Error: ${error.message}`);
-    }
-  }
+        // Fetch air quality using latitude and longitude
+        fetch(airQualityUrl.replace('{LAT}', lat).replace('{LON}', lon))
+          .then(res => res.json())
+          .then(airData => {
+            const airQuality = airData.list[0].main.aqi; // Air quality index
+            const airInfo = `
+              <p>Air Quality Index: ${airQuality} (1 = Good, 5 = Bad)</p>
+            `;
+            document.getElementById('result').innerHTML = weatherInfo + airInfo;
+          });
+      })
+      .catch(error => {
+        document.getElementById('result').innerHTML = `<p>Error fetching data. Try again!</p>`;
+      });
+  });
   
