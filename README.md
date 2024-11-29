@@ -1,4 +1,8 @@
                         WEATHER APP
+
+                      Demo video
+                 https://youtu.be/slfiE4L8s_c
+                 
                      Running it locally
 I created a simple weather web app that provides users with the current weather conditions and air quality of th cities around the globe. I used only front end. I used HTML (index.html) to create the skeleton of the app, then CSS (styles.css) to style it and Javascript (script.js as a module to import a variable called WeatherApiKey from api_key.js that holds the Api key used to fetch data from Open weather map Api and display it in my app). I wrote the api_key.js in the .gitignore so that the file cannot be tracked by git and pushed to my public git account since it contains the api key. I used vs code as my code editor and I use liveserver to run it locally. It has a text box where i write the name of the city i want ti search for. It has search button that when clicked, weather data for that city is desplayed in my app. The dta includes temperature, current weather conditon and air quality metric from 1 to 5. With one signifying good and 5 signifying bad.
 
