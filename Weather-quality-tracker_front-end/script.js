@@ -1,4 +1,4 @@
-import weatherApiKey from '../.gitignore/api_key.js';
+import weatherApiKey from './api_key.js';
 
 document.getElementById('getWeather').addEventListener('click', () => {
   const city = document.getElementById('cityInput').value;
