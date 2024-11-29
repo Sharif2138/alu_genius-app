@@ -1,6 +1,7 @@
+import weatherApiKey from './.gitignore/api_key.js';
+
 document.getElementById('getWeather').addEventListener('click', () => {
   const city = document.getElementById('cityInput').value;
-  const weatherApiKey = '768f0167ea0fddd766b125f66b1fef33';
   const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${weatherApiKey}&units=metric`;
 
   // Clear previous results
