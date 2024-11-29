@@ -4,7 +4,6 @@ document.getElementById('getWeather').addEventListener('click', () => {
   const city = document.getElementById('cityInput').value;
   const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${weatherApiKey}&units=metric`;
 
-  // Clear previous results
   document.getElementById('result').innerHTML = 'Loading...';
 
   fetch(weatherUrl)
@@ -24,7 +23,6 @@ document.getElementById('getWeather').addEventListener('click', () => {
         <p>Weather: ${data.weather[0].description}</p>
       `;
 
-      // Fetch air quality using latitude and longitude
       const airQualityUrl = `https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${weatherApiKey}`;
       fetch(airQualityUrl)
         .then(res => res.json())
