@@ -3,6 +3,13 @@ const baseUrl = 'https://api.football-data.org/v4';  // API endpoint
 
 document.getElementById('load-stats').addEventListener('click', loadFootballStats);
 
+/*************  ✨ Codeium Command ⭐  *************/
+/**
+ * Loads football statistics for the selected league.
+ * Fetches live matches, team rankings, and populates team selection
+ * for displaying player stats. Updates the UI with the retrieved data.
+ */
+/******  f5f54101-e03c-4ba5-9b18-cdceee036126  *******/
 async function loadFootballStats() {
     const leagueCode = document.getElementById('league').value;
 
